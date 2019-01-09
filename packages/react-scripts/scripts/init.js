@@ -32,6 +32,16 @@ function isInGitRepository() {
   }
 }
 
+function getGitUsername() {
+  let userName = "";
+  try {
+    userName = execSync('git config user.name');
+    return userName;
+  } catch (e) {
+    return userName;
+  }
+}
+
 function isInMercurialRepository() {
   try {
     execSync('hg --cwd . root', { stdio: 'ignore' });
@@ -218,6 +228,7 @@ module.exports = function(
   const displayedCommand = useYarn ? 'yarn' : 'npm';
 
   console.log();
+  console.log(`感谢${getGitUsername()}使用icxCRA ^.^`);
   console.log(`Success! Created ${appName} at ${appPath}`);
   console.log('Inside that directory, you can run several commands:');
   console.log();
