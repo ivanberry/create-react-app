@@ -207,7 +207,7 @@ module.exports = function(
 
   if (!isAntdInstalled(appPackage)) {
     console.log('Installing Antd as main UI framework');
-    const _args = ['install', '--save', verbose && '--verbose'];
+    const _args = ['install', 'antd', '--save', verbose && '--verbose'];
     const proc = spawn.sync(command, _args);
     if (proc.status !== 0) {
       console.error(`\`${command} ${_args.join(' ')}\` failed`);
