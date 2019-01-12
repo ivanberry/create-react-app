@@ -23,5 +23,5 @@ npm i icx-react-scripts
 ### Feature
 
 - [x] Add '@' as alias for src
-- [ ] Add Ant Design as UI framework
+- [x] Add Ant Design as UI framework
 - [ ] Add state management

@@ -174,7 +174,7 @@ module.exports = function(
     command = 'npm';
     args = ['install', '--save', verbose && '--verbose'].filter(e => e);
   }
-  args.push('react', 'react-dom', 'antd');
+  args.push('react', 'react-dom');
 
   // Install additional template dependencies, if present
   const templateDependenciesPath = path.join(
@@ -201,6 +201,16 @@ module.exports = function(
     const proc = spawn.sync(command, args, { stdio: 'inherit' });
     if (proc.status !== 0) {
       console.error(`\`${command} ${args.join(' ')}\` failed`);
+      return;
+    }
+  }
+
+  if (!isAntdInstalled()) {
+    console.log('Installing Antd as main UI framework');
+    const _args = ['install', '--save', verbose && '--verbose'];
+    const proc = spawn.sync(command, _args);
+    if (proc.status !== 0) {
+      console.error(`\`${command} ${_args.join(' ')}\` failed`);
       return;
     }
   }
@@ -270,6 +280,15 @@ module.exports = function(
 };
 
 function isReactInstalled(appPackage) {
+  const dependencies = appPackage.dependencies || {};
+
+  return (
+    typeof dependencies.react !== 'undefined' &&
+    typeof dependencies['react-dom'] !== 'undefined'
+  );
+}
+
+function isAntdInstalled(appPackage) {
   const dependencies = appPackage.dependencies || {};
 
   return (
