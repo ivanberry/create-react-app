@@ -205,7 +205,7 @@ module.exports = function(
     }
   }
 
-  if (!isAntdInstalled()) {
+  if (!isAntdInstalled(appPackage)) {
     console.log('Installing Antd as main UI framework');
     const _args = ['install', '--save', verbose && '--verbose'];
     const proc = spawn.sync(command, _args);
@@ -292,7 +292,7 @@ function isAntdInstalled(appPackage) {
   const dependencies = appPackage.dependencies || {};
 
   return (
-    typeof dependencies.react !== 'undefined' &&
-    typeof dependencies['react-dom'] !== 'undefined'
+    typeof dependencies['antd'] !== 'undefined' &&
+    typeof dependencies['antd'] !== 'undefined'
   );
 }
