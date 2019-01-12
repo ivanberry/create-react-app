@@ -1,6 +1,6 @@
 {
   "name": "icx-react-scripts",
-  "version": "2.1.3",
+  "version": "2.1.4",
   "description": "Icx Configuration and scripts for Create React App.",
   "repository": "ivanberry/create-react-app",
   "license": "MIT",
@@ -8,7 +8,7 @@
     "node": ">=6"
   },
   "bugs": {
-    "url": "https://github.com/facebook/create-react-app/issues"
+    "url": "https://github.com/ivanberry/create-react-app"
   },
   "files": [
     "bin",

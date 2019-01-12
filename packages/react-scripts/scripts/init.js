@@ -33,7 +33,7 @@ function isInGitRepository() {
 }
 
 function getGitUsername() {
-  let userName = "";
+  let userName = '';
   try {
     userName = execSync('git config user.name');
     return userName;
@@ -228,7 +228,7 @@ module.exports = function(
   const displayedCommand = useYarn ? 'yarn' : 'npm';
 
   console.log();
-  console.log(`感谢${getGitUsername()}使用icxCRA ^.^`);
+  console.log(chalk.yellow(`${getGitUsername()}使用icx-CRA ^.^`));
   console.log(`Success! Created ${appName} at ${appPath}`);
   console.log('Inside that directory, you can run several commands:');
   console.log();
